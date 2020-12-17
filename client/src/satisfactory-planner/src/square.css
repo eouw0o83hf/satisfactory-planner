@@ -1,0 +1,19 @@
+.square {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  z-index: 0;
+}
+
+.active {
+  z-index: 9999;
+}
+
+.on {
+  background-color: red;
+}
