@@ -3,11 +3,17 @@ import useWindowDimensions from "./hooks/useWindowDimensions";
 import { generatePlanes } from "./plane";
 import { Coordinates, PlaneState, SquareState } from "./types";
 
+export type MutatePlane = (planeState: PlaneState) => void;
+export type MutateSquare = (
+  planeIndex: number,
+  squareState: SquareState
+) => void;
+
 export type State = {
   planes: PlaneState[];
   windowDimensions: Coordinates;
-  mutatePlane: (planeState: PlaneState) => void;
-  mutateSquare: (planeIndex: number, squareState: SquareState) => void;
+  mutatePlane: MutatePlane;
+  mutateSquare: MutateSquare;
 };
 
 export const StateManagerContext = React.createContext({} as State);

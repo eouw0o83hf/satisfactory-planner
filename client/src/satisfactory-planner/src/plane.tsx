@@ -31,7 +31,7 @@ const generatePlane = (_: any, index: number) => {
   } as PlaneState;
 };
 
-const PlaneSize = 3;
+const PlaneSize = 5;
 
 const initSquares = (angle: number) => {
   const squares = new Array<SquareState>();
