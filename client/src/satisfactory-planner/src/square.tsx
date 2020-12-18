@@ -4,6 +4,7 @@ import { Coordinates, SquareState } from "./types";
 import { StateManagerContext } from "./stateManager";
 
 const SquareLength = 70;
+const HalfSquareLength = SquareLength / 2;
 
 export const generateSquare = (index: Coordinates, angle: number) => {
   // scale, rotate, translate
@@ -20,13 +21,21 @@ export const generateSquare = (index: Coordinates, angle: number) => {
   const rotatedY = -scaledX * sin + scaledY * cos;
 
   // translate (center of square on indexed point)
-  const x = rotatedX - SquareLength / 2;
-  const y = rotatedY - SquareLength / 2;
+  const x = rotatedX - HalfSquareLength;
+  const y = rotatedY - HalfSquareLength;
+
+  const cornerCoords = [
+    [rotatedX - HalfSquareLength, rotatedY - HalfSquareLength],
+    [rotatedX - HalfSquareLength, rotatedY + HalfSquareLength],
+    [rotatedX + HalfSquareLength, rotatedY - HalfSquareLength],
+    [rotatedX + HalfSquareLength, rotatedY + HalfSquareLength],
+  ];
 
   return {
     index,
     selected: false,
     cssCoords: [x, y],
+    cornerCoords,
   } as SquareState;
 };
 

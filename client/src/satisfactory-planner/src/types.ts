@@ -2,8 +2,13 @@
 export type Coordinates = number[];
 
 export type SquareState = {
+  /** [x, y] index from center */
   index: Coordinates;
+  /** [left, top] for absolute position */
   cssCoords: Coordinates;
+  /** 2d array of corner coordinates for nexus detection */
+  cornerCoords: Coordinates[];
+  /** whether or not the square has been selected */
   selected: boolean;
 }
 
